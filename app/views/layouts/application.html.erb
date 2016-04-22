@@ -14,6 +14,20 @@
 </head>
 <body>
 
+    <div class="right">
+       <% if user_signed_in? %>
+        Seja Bem Vindo
+        <%= link_to current_user.display_name, '/profile'%>,
+        <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
+       <% else %>
+       Por favor
+       <%= link_to 'Login', new_user_session_path  %>
+        ou
+         <%= link_to 'Cadastre-se', new_user_registration_path %>
+       <% end %>
+     </div>
+         <p class="notice"><%= notice %></p>
+         <p class="alert"><%= alert %></p>
 <%= yield %>
 
 </body>

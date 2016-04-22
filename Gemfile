@@ -41,3 +41,4 @@ group :development do
   gem 'spring'
 end
 gem 'react-rails', '~> 1.6.0'
+gem 'devise'
