@@ -13,6 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "babel-loader": "^6.2.4",
+    "events": "^1.1.0",
+    "flux": "^2.1.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7"
   },
