@@ -1,4 +1,5 @@
 import ServerActions from "./actions/ServerActions"
+
 export default {
   getAllTweets(){
     $.get("/tweets")
@@ -8,6 +9,11 @@ export default {
   createTweet(body){
       $.post("/tweets", { body })
       .success( rawTweet => ServerActions.receivedOneTweet(rawTweet))
+      .error(error => console.log(error));
+    },
+    getAllUsers(){
+      $.get("/followers/random")
+      .success( rawUsers => ServerActions.receivedUsers(rawUsers))
       .error(error => console.log(error));
     }
 }
