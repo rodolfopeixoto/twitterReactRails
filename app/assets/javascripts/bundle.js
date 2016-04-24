@@ -268,7 +268,7 @@
 	  },
 	  createTweet: function createTweet(body) {
 	    $.post("/tweets", { body: body }).success(function (rawTweet) {
-	      return _ServerActions2.default.receivedOnTweet(rawTweet);
+	      return _ServerActions2.default.receivedOneTweet(rawTweet);
 	    }).error(function (error) {
 	      return console.log(error);
 	    });
@@ -305,9 +305,9 @@
 	      rawTweets: rawTweets
 	    });
 	  },
-	  receivedOnTweet: function receivedOnTweet(rawTweet) {
+	  receivedOneTweet: function receivedOneTweet(rawTweet) {
 	    _dispatcher2.default.dispatch({
-	      actionType: ActionTypes.RECEIVED_ON_TWEET,
+	      actionType: ActionTypes.RECEIVED_ONE_TWEET,
 	      rawTweet: rawTweet
 	    });
 	  }
@@ -765,7 +765,7 @@
 	});
 	exports.default = {
 	  RECEIVED_TWEETS: 'RECEIVED_TWEETS',
-	  RECEIVED_ON_TWEET: 'RECEIVED_ON_TWEET'
+	  RECEIVED_ONE_TWEET: 'RECEIVED_ONE_TWEET'
 	};
 
 /***/ },
@@ -984,7 +984,7 @@
 	      _tweets = action.rawTweets;
 	      TweetStore.emitChange();
 	      break;
-	    case _constants2.default.RECEIVED_ON_TWEET:
+	    case _constants2.default.RECEIVED_ONE_TWEET:
 	      _tweets.unshift(action.rawTweet);
 	      TweetStore.emitChange();
 	    default:

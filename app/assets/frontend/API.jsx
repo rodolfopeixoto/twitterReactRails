@@ -7,7 +7,7 @@ export default {
   },
   createTweet(body){
       $.post("/tweets", { body })
-      .success( rawTweet => ServerActions.receivedOnTweet(rawTweet))
+      .success( rawTweet => ServerActions.receivedOneTweet(rawTweet))
       .error(error => console.log(error));
     }
 }
